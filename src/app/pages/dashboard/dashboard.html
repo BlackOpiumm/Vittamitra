@@ -1,0 +1,21 @@
+<div class="dashboard-header">
+    <h2>Dashboard</h2>
+    <button class="logout-button" (click)="logout()">Logout</button>
+</div>
+
+<div class="welcome-card">
+  Hello, {{ username }}!
+</div>
+
+<nav>
+    <a routerLink="kyc" routerLinkActive="active-link">KYC</a>
+    <a routerLink="accounts" routerLinkActive="active-link">Accounts</a>
+    <a routerLink="mini-statement" routerLinkActive="active-link">Mini-Statement</a>
+    <a routerLink="service" routerLinkActive="active-link">Service Requests</a>
+</nav>
+
+
+
+
+
+<router-outlet></router-outlet>

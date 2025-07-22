@@ -1,0 +1,25 @@
+<div class="admin-kyc">
+      <h2>KYC Requests</h2>
+      <table *ngIf="requests.length > 0">
+        <thead>
+          <tr>
+            <th>#</th><th>Name</th><th>PAN</th><th>Status</th><th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let req of requests; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ req.name }}</td>
+            <td>{{ req.pan }}</td>
+            <td><span [ngClass]="{'status-approved': req.status === 'Approved', 'status-pending': req.status === 'Pending', 'status-rejected': req.status === 'Rejected'}">
+              {{ req.status }}
+            </span></td>
+            <td>
+              <button class="btn btn-approve" (click)="updateStatus(i, 'Approved') " [disabled]="req.status !== 'Pending'">Approve</button>
+              <button class="btn btn-reject" (click)="updateStatus(i, 'Rejected')" [disabled]="req.status !== 'Pending'">Reject</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p *ngIf="requests.length === 0">No KYC requests yet.</p>
+    </div>

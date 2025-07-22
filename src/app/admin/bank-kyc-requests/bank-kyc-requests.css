@@ -1,0 +1,76 @@
+.admin-kyc {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f9fafb;
+  border-radius: 8px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+thead th {
+  background-color: #f3f4f6;
+  font-weight: 600;
+  color: #374151;
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 0.5px;
+}
+
+tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Status Colors */
+.status-pending,
+.status-approved,
+.status-rejected {
+  font-weight: bold;
+}
+
+.status-pending { color: #f59e0b; } /* Amber */
+.status-approved { color: #10b981; } /* Green */
+.status-rejected { color: #ef4444; } /* Red */
+
+/* Action Buttons */
+.btn {
+  border: none;
+  padding: 0.7rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+  margin: 0.5rem;
+  color: white;
+}
+
+.btn:disabled { cursor: not-allowed; opacity: 0.6; }
+
+.btn-approve { background-color: #10b981; }
+.btn-approve:not(:disabled):hover { background-color: #059669; transform: translateY(-1px); }
+
+.btn-reject { background-color: #ef4444; }
+.btn-reject:not(:disabled):hover { background-color: #dc2626; transform: translateY(-1px); }
+
+p { color: #6b7280; font-style: italic; }

@@ -1,0 +1,66 @@
+<div class="kyc-form-container">
+  <h2>KYC Form</h2>
+  <p *ngIf="!success">Please fill out the form below to complete your KYC verification.</p>
+
+  <form #kycForm="ngForm" (ngSubmit)="submitForm(kycForm)" *ngIf="!success" novalidate>
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" [(ngModel)]="user.name" #name="ngModel" required>
+      <div *ngIf="name.invalid && (name.dirty || name.touched || submitted)" class="error">
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" [(ngModel)]="user.dob" #dob="ngModel" required>
+      <div *ngIf="dob.invalid && (dob.dirty || dob.touched || submitted)" class="error">
+        Date of Birth is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="pan">PAN Number</label>
+      <input type="text" id="pan" name="pan" [(ngModel)]="user.pan" #pan="ngModel" required pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}">
+      <div *ngIf="pan.invalid && (pan.dirty || pan.touched || submitted)" class="error">
+        <span *ngIf="pan.errors?.['required']">PAN is required.</span>
+        <span *ngIf="pan.errors?.['pattern']">Please enter a valid PAN number.</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="aadhar">Aadhar Number</label>
+      <input type="text" id="aadhar" name="aadhar" [(ngModel)]="user.aadhar" #aadhar="ngModel" required pattern="^\d{12}$">
+      <div *ngIf="aadhar.invalid && (aadhar.dirty || aadhar.touched || submitted)" class="error">
+        <span *ngIf="aadhar.errors?.['required']">Aadhar is required.</span>
+        <span *ngIf="aadhar.errors?.['pattern']">Please enter a valid 12-digit Aadhar number.</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="mobile">Mobile Number</label>
+      <input type="text" id="mobile" name="mobile" [(ngModel)]="user.mobile" #mobile="ngModel" required pattern="^\d{10}$">
+      <div *ngIf="mobile.invalid && (mobile.dirty || mobile.touched || submitted)" class="error">
+        <span *ngIf="mobile.errors?.['required']">Mobile number is required.</span>
+        <span *ngIf="mobile.errors?.['pattern']">Please enter a valid 10-digit mobile number.</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" [(ngModel)]="user.email" #email="ngModel" required email>
+      <div *ngIf="email.invalid && (email.dirty || email.touched || submitted)" class="error">
+        <span *ngIf="email.errors?.['required']">Email is required.</span>
+        <span *ngIf="email.errors?.['email']">Please enter a valid email address.</span>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn">Submit KYC</button>
+  </form>
+
+  <div *ngIf="success" class="success-message">
+    <h3>Thank You!</h3>
+    <p>Your KYC details have been submitted successfully for verification.</p>
+    <p>We will notify you once the verification process is complete.</p>
+  </div>
+</div>

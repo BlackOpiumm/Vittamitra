@@ -1,0 +1,138 @@
+/* Use :host to make the component a full-screen, centered container */
+:host {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* A subtle, professional gradient background */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Animation for the login card to fade in smoothly */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+h2 {
+    text-align: center;
+    color: #004085; /* A deeper, more corporate blue */
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+form {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 12px; /* Softer corners */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Softer, more pronounced shadow */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for labels */
+label {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+/* Style for input fields */
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Important for padding and width */
+    background-color: white;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Style for input fields on focus */
+input[type="email"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+    outline: none;
+}
+
+/* Login button styling */
+button[type="submit"] {
+    background-color: #0056b3;
+    color: white;
+    padding: 14px 20px;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+    background-color: #004494;
+}
+
+/* Disabled button state */
+button[type="submit"]:disabled {
+    background-color: #a0c7e4;
+    cursor: not-allowed;
+}
+
+/* Validation and error message styling */
+.validation-error,
+.error-message {
+    color: #d93025; /* A standard error red */
+    font-size: 0.8rem;
+    padding: 4px 0;
+}
+
+.validation-error {
+    margin-top: -0.8rem;
+    margin-bottom: 1rem;
+}
+
+.error-message {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* Container for extra links */
+.extra-links {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.extra-links a {
+    color: #0056b3;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}

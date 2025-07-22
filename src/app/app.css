@@ -1,0 +1,83 @@
+/*
+ * It's best practice to put global styles like `body` and font imports
+ * in a global stylesheet (e.g., `src/styles.css` in a standard Angular project).
+ * These styles are provided here for completeness.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/*
+ * Since this is a component stylesheet, we style the host element. If this
+ * were a global stylesheet (styles.css), you'd style `body` directly.
+ */
+:host {
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa; /* A very light grey for the app background */
+  color: #333;
+  display: block;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+
+h1 {
+  color: #004085; /* A darker, more corporate blue */
+  border-bottom: 2px solid #e2e3e5;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+/*
+ * You can also add styles for common elements that will appear inside the
+ * router-outlet, like tables and cards, to ensure a consistent look and feel.
+ */
+
+/* A more modern table style for components like mini-statement */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden; /* To make border-radius work on tables */
+}
+
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+thead th {
+  background-color: #0056b3;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+tbody tr:nth-of-type(even) {
+  background-color: #f8f9fa;
+}
+
+tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+/* A default card style for components like accounts */
+.account-card {
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.account-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

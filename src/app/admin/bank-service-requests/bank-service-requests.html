@@ -1,0 +1,8 @@
+<div class="bank-service-request-container">
+  <h2>All Service Requests (From Customers)</h2>
+  <ul>
+    <li *ngFor="let req of serviceRequests | async">
+      <strong>{{ req.type }}</strong> - {{ req.desc }}
+    </li>
+  </ul>
+</div>

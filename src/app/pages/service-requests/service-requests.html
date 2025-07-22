@@ -1,0 +1,30 @@
+<div class="service-request-container">
+ <h2>Raise Service Request</h2>
+
+ <form #reqForm="ngForm" (ngSubmit)="submitRequest(reqForm)">
+  <label for="type">Request Type:</label>
+  <select id="type" name="type" [(ngModel)]="requestType" required>
+   <option value="" disabled selected>Select Request Type</option>
+   <option>Reset Password</option>
+   <option>Dispute Transaction</option>
+   <option>Update KYC</option>
+   <option>Cheque Book request</option>
+  </select>
+  <br /><br />
+
+
+  <label for="description">Description:</label>
+  <textarea id="description" name="description" [(ngModel)]="description" required></textarea>
+  <br /><br />
+
+  <button type="submit">Submit</button>
+ </form>
+
+ <hr />
+ <hr />
+
+ <h3>Submitted Requests</h3>
+ <ul>
+  <li *ngFor="let req of submittedRequests"><strong>{{ req.type }}</strong>: {{ req.desc }}</li>
+ </ul>
+</div>

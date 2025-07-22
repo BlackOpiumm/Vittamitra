@@ -1,0 +1,31 @@
+<div class="dashboard-header">
+    <h2>Bank Dashboard</h2>
+    <button class="logout-button" (click)="logout()">Logout</button>
+</div>
+
+<div class="bank-dashboard-container">
+
+  <div class="card-container">
+    <div class="card">
+      <h3>Total Customers</h3>
+      <p>{{ totalCustomers }}</p>
+    </div>
+
+    <div class="card">
+      <h3>Pending KYC Approvals</h3>
+      <p>{{ pendingKycs$ | async }}</p>
+    </div>
+
+    <div class="card">
+      <h3>Active Service Requests</h3>
+      <p>{{ serviceRequests$ | async }}</p>
+    </div>
+  </div>
+
+  <div class="nav-section">
+    <button routerLink="kyc-requests"> Approve KYC</button>
+    <button routerLink="service-requests"> Handle Requests</button>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>

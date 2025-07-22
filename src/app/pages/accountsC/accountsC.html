@@ -1,0 +1,20 @@
+<h2>Your Bank Accounts</h2>
+<hr />
+
+<ng-container *ngIf="accounts.length > 0; else noAccounts">
+  <div *ngFor="let acc of accounts" class="account-card">
+    <p><strong>Account ID:</strong> {{ acc.AccountId }}</p>
+    <p><strong>Type:</strong> {{ acc.AccountType }} ({{ acc.AccountSubType }})</p>
+    <p><strong>Currency:</strong> {{ acc.Currency }}</p>
+    <p><strong>Nickname:</strong> {{ acc.Nickname }}</p>
+    <p><strong>Description:</strong> {{ acc.Description }}</p>
+    <button type="button" class="mini" [routerLink]="['/dashboard/mini-statement', acc.AccountId]">
+      Mini Statement
+    </button>
+    <hr />
+  </div>
+</ng-container>
+
+<ng-template #noAccounts>
+  <p>No accounts found.</p>
+</ng-template>

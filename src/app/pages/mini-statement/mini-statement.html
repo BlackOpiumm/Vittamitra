@@ -1,0 +1,27 @@
+<div class="mini-statement-container">
+  <h2>Mini Statement</h2>
+
+  <div class="balance-info">
+    <strong>Available Balance:</strong>
+    <span class="balance-amount">{{ balance | currency:'INR': 'symbol'  }}</span>
+  </div>
+
+  <table class="statement-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th>Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let txn of transactions">
+        <td>{{ txn.date | date:'dd/MM/yyyy' }}</td>
+        <td>{{ txn.description }}</td>
+        <td [ngClass]="{ 'debit': txn.type === 'debit', 'credit': txn.type !== 'debit' }">{{ txn.type }}</td>
+        <td>{{ txn.amount | currency:'INR': 'symbol' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

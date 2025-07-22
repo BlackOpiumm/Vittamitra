@@ -1,0 +1,28 @@
+<div class="login-container">
+    <h2>Login to Vittamitra</h2>
+  
+    <form #loginform="ngForm" (ngSubmit)="login(loginform)">
+
+        <label for="role">Login As:</label>
+        <select name="role" [(ngModel)]="role" required>
+            <option value="" disabled selected>Select Role</option>
+            <option value="customer">Customer</option>
+             <option value="admin">Bank Admin</option>
+        </select>
+
+        <label for="email">Email:</label>
+        <input type="email" [(ngModel)]="email" name="email" placeholder="Enter your email" required
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"  #emailModel="ngModel" />
+        <div  *ngIf="emailModel.invalid && emailModel.touched" class="validation-error">
+            Please enter a valid email address.
+        </div>
+  
+        <label for="password">Password:</label>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="Enter your password" required />
+  
+        <button type="submit" [disabled]="loginform.invalid">Login</button>
+        
+        
+    </form>
+    <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>
