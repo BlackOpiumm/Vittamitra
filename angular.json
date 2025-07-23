@@ -13,20 +13,14 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "tsconfig.app.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
-            "styles": [
-              "src/styles.css"
-            ]
+           "outputPath": "dist/vittamitra",
+           "index": "src/index.html",
+           "browser": "src/main.ts",
+           "polyfills": ["zone.js"],
+           "tsConfig": "tsconfig.app.json",
+           "assets": ["src/favicon.ico", "src/assets"],
+           "styles": ["src/styles.css"],
+           "scripts": []
           },
           "configurations": {
             "production": {
@@ -75,12 +69,7 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              {
-                "glob": "**/*",
-                "input": "public"
-              }
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles.css"
             ]
